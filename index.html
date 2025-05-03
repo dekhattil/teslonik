@@ -1,280 +1,197 @@
-<!DOCTYPE html><html lang="id">
+<!DOCTYPE html>
+<html lang="id">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>TESLONIK - Service Elektronik Profesional</title>
-    <link href="https://fonts.googleapis.com/css2?family=Ubuntu:wght@300;400;500;700&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
-    <style>
-        :root {
-            --ubuntu-orange: #E95420;
-            --ubuntu-purple: #77216F;
-            --ubuntu-gray: #1a1a1a;
-            --ubuntu-dark: #0d0d0d;
-            --ubuntu-light: #2c2c2c;
-            --text-light: #f0f0f0;
-            --text-muted: #bbbbbb;
-        }* {
-        box-sizing: border-box;
-        margin: 0;
-        padding: 0;
-        font-family: 'Ubuntu', sans-serif;
-    }
-
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>TESLONIK - Service Elektronik Profesional</title>
+  <link rel="icon" href="logo.png" type="image/png" />
+  <link href="https://fonts.googleapis.com/css2?family=Ubuntu:wght@300;400;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"/>
+  <style>
     body {
-        background: var(--ubuntu-dark);
-        color: var(--text-light);
-        min-height: 100vh;
+      margin: 0;
+      font-family: 'Ubuntu', sans-serif;
+      background: linear-gradient(to bottom, #1a1a1a, #333);
+      color: #fff;
+      overflow-x: hidden;
     }
-
-    .window-frame {
-        max-width: 1200px;
-        margin: 0 auto;
-        background: var(--ubuntu-gray);
-        box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
+    header {
+      background: #111;
+      padding: 20px 40px;
+      text-align: center;
+      box-shadow: 0 5px 15px rgba(0,0,0,0.5);
     }
-
-    .title-bar {
-        background: linear-gradient(to right, var(--ubuntu-orange), var(--ubuntu-purple));
-        padding: 16px 20px;
-        color: white;
-        display: flex;
-        align-items: center;
-        justify-content: space-between;
-        position: relative;
-        transition: all 0.3s ease-in-out;
+    header img {
+      height: 80px;
+      vertical-align: middle;
     }
-
-    .title-bar h1 {
-        font-size: 2rem;
-        cursor: pointer;
-        transition: transform 0.3s ease;
+    header h1 {
+      font-size: 2.5em;
+      margin: 10px 0 0;
+      color: #00ffc8;
+      text-shadow: 2px 2px 8px #00ffd0;
     }
-
-    .title-bar h1:hover {
-        transform: scale(1.05);
+    nav {
+      background: #00ffc8;
+      display: flex;
+      justify-content: center;
+      gap: 40px;
+      padding: 10px 0;
     }
-
-    .definition-box {
-        display: none;
-        background: var(--ubuntu-light);
-        color: var(--text-muted);
-        padding: 1rem;
-        position: absolute;
-        top: 100%;
-        left: 20px;
-        max-width: 400px;
-        z-index: 10;
-        border-radius: 8px;
-        box-shadow: 0 2px 8px rgba(0,0,0,0.6);
+    nav a {
+      color: #111;
+      text-decoration: none;
+      font-weight: bold;
+      font-size: 1.1em;
+      transition: 0.3s ease;
     }
-
-    .global-menu {
-        background: var(--ubuntu-light);
-        display: none;
-        flex-direction: column;
+    nav a:hover {
+      color: #fff;
+      text-shadow: 0 0 10px #fff;
     }
-
-    .global-menu.active {
-        display: flex;
+    .hero {
+      padding: 80px 20px;
+      background: url('img1.jpg') center/cover no-repeat;
+      text-align: center;
+      color: #fff;
+      animation: fadeIn 3s ease-in-out;
     }
-
-    .menu-item {
-        color: white;
-        text-decoration: none;
-        padding: 15px 20px;
-        display: flex;
-        align-items: center;
-        gap: 10px;
-        border-bottom: 1px solid rgba(255,255,255,0.1);
-        transition: background 0.3s;
+    .hero h2 {
+      font-size: 3em;
+      text-shadow: 2px 2px 10px #000;
+      margin-bottom: 20px;
     }
-
-    .menu-item:hover {
-        background: rgba(255,255,255,0.1);
+    .hero p {
+      font-size: 1.3em;
+      background: rgba(0, 0, 0, 0.6);
+      display: inline-block;
+      padding: 15px 30px;
+      border-radius: 20px;
     }
-
-    .mobile-menu-btn {
-        background: none;
-        border: none;
-        color: white;
-        font-size: 1.5rem;
+    section {
+      padding: 60px 30px;
+      max-width: 1200px;
+      margin: auto;
     }
-
-    .service-grid {
-        display: grid;
-        grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-        gap: 1.5rem;
-        padding: 2rem;
+    .section-title {
+      font-size: 2.5em;
+      margin-bottom: 40px;
+      text-align: center;
+      color: #00ffc8;
     }
-
-    .service-card {
-        background: var(--ubuntu-light);
-        border-radius: 10px;
-        padding: 1.5rem;
-        text-align: center;
-        box-shadow: 0 2px 8px rgba(0,0,0,0.3);
-        transition: transform 0.3s ease, background 0.3s;
+    .services, .gallery {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 30px;
+      justify-content: center;
     }
-
-    .service-card:hover {
-        transform: translateY(-5px);
-        background: var(--ubuntu-purple);
+    .card {
+      background: #222;
+      border-radius: 20px;
+      padding: 30px;
+      box-shadow: 0 8px 25px rgba(0,0,0,0.4);
+      text-align: center;
+      flex: 1 1 300px;
+      transition: transform 0.3s;
     }
-
-    .gallery-container {
-        display: grid;
-        grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
-        gap: 1rem;
-        padding: 1rem;
+    .card:hover {
+      transform: scale(1.05);
+      box-shadow: 0 10px 30px #00ffc8;
     }
-
-    .gallery-item {
-        width: 100%;
-        aspect-ratio: 1/1;
-        object-fit: cover;
-        border-radius: 8px;
-        transition: transform 0.3s ease;
+    .card i {
+      font-size: 40px;
+      color: #00ffc8;
+      margin-bottom: 15px;
     }
-
-    .gallery-item:hover {
-        transform: scale(1.05);
+    .gallery img {
+      width: 100%;
+      max-width: 300px;
+      border-radius: 20px;
+      transition: 0.3s;
+      box-shadow: 0 5px 15px rgba(0,0,0,0.5);
     }
-
-    .contact-panel {
-        background: var(--ubuntu-gray);
-        padding: 2rem;
-        margin: 2rem;
-        border-radius: 10px;
+    .gallery img:hover {
+      transform: scale(1.1);
     }
-
-    @media (min-width: 768px) {
-        .global-menu {
-            display: flex;
-            flex-direction: row;
-            justify-content: center;
-        }
-        .mobile-menu-btn {
-            display: none;
-        }
-        .menu-item {
-            border-bottom: none;
-            padding: 12px 20px;
-        }
+    footer {
+      background: #111;
+      text-align: center;
+      padding: 20px;
+      color: #999;
+      font-size: 0.9em;
     }
-
-    @media (max-width: 480px) {
-        .window-frame {
-            border-radius: 0;
-            margin: 0;
-            min-height: 100vh;
-        }
-        .service-grid {
-            grid-template-columns: 1fr;
-            padding: 1rem;
-        }
-        .contact-panel {
-            margin: 1rem;
-            padding: 1.5rem;
-        }
-        .gallery-container {
-            grid-template-columns: repeat(2, 1fr);
-        }
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(20px); }
+      to { opacity: 1; transform: translateY(0); }
     }
-</style>
-
+  </style>
 </head>
 <body>
-    <div class="window-frame">
-        <div class="title-bar">
-            <h1 id="brandTitle">TESLONIK</h1>
-            <div class="definition-box" id="definitionBox">
-                <p><strong>TESLONIK</strong> Kami menyediakan jasa reparasi berbagai peralatan elektronik dan juga bersedia menginstalasi kelistrikan rumah.</p>
-            </div>
-            <button class="mobile-menu-btn" aria-label="Toggle Menu">
-                <i class="fas fa-bars"></i>
-            </button>
-        </div><nav class="global-menu" id="mainMenu">
-        <a href="#home" class="menu-item"><i class="fas fa-home"></i><span>Beranda</span></a>
-        <a href="#services" class="menu-item"><i class="fas fa-tools"></i><span>Layanan</span></a>
-        <a href="#gallery" class="menu-item"><i class="fas fa-camera"></i><span>Galeri</span></a>
-        <a href="#about" class="menu-item"><i class="fas fa-info-circle"></i><span>Tentang</span></a>
-        <a href="#testimonials" class="menu-item"><i class="fas fa-comment-dots"></i><span>Testimoni</span></a>
-        <a href="#faq" class="menu-item"><i class="fas fa-question-circle"></i><span>FAQ</span></a>
-        <a href="#contact" class="menu-item"><i class="fas fa-phone-alt"></i><span>Kontak</span></a>
-    </nav>
 
-    <main>
-        <section id="services" class="service-grid">
-            <div class="service-card">
-                <i class="fas fa-fan fa-2x" style="color: var(--ubuntu-orange);"></i>
-                <h3>Service Kipas Angin</h3>
-                <p>Kipas angin macet, lemah, berdengung, atau patah</p>
-            </div>
-            <div class="service-card">
-                <i class="fas fa-tv fa-2x" style="color: var(--ubuntu-orange);"></i>
-                <h3>Perbaikan TV CRT</h3>
-                <p>Gejala warna tidak terang, bergaris, acak naik turun, bahkan sampai padam total</p>
-            </div>
-            <div class="service-card">
-                <i class="fas fa-life-ring fa-2x" style="color: var(--ubuntu-orange);"></i>
-                <h3>Perbaikan TV</h3>
-                <p>Spesialis TV LED dan CRT</p>
-            </div>
-            <div class="service-card">
-                <i class="fas fa-tools fa-2x" style="color: var(--ubuntu-orange);"></i>
-                <h3>Perbaikan TV</h3>
-                <p>Spesialis TV LED dan CRT</p>
-            </div>
-            <div class="service-card">
-                <i class="fas fa-bolt fa-2x" style="color: var(--ubuntu-orange);"></i>
-                <h3>Instalasi Listrik</h3>
-                <p>Pemasangan instalasi aman dan rapi</p>
-            </div>
-        </section>
+<audio autoplay loop>
+  <source src="backsound.mp3" type="audio/mpeg">
+</audio>
 
-        <section id="gallery" class="gallery-container">
-            <img src="img1.jpg" alt="Proses servis" class="gallery-item">
-            <img src="img2.jpg" alt="TV diperbaiki" class="gallery-item">
-            <img src="img3.jpg" alt="Hasil kerja" class="gallery-item">
-            <img src="img4.jpg" alt="Alat servis" class="gallery-item">
-        </section>
+<header class="animate__animated animate__fadeInDown">
+  <img src="logo.png" alt="TESLONIK Logo">
+  <h1>TESLONIK</h1>
+  <p>Servis Elektronik Profesional - Andalkan yang Ahli!</p>
+</header>
 
-        <section id="contact" class="contact-panel">
-            <h2><i class="fas fa-life-ring"></i> Hubungi Kami</h2>
-            <p><i class="fab fa-whatsapp"></i> <a href="https://wa.me/6282255199502" style="color: var(--ubuntu-orange);">0822 5519 9502</a></p>
-            <p><i class="fas fa-envelope"></i> dayatputohsilop@gmail.com</p>
-            <p><i class="fas fa-map-marker-alt"></i> Gampong Cot Pluh, Kecamatan Samatiga</p>
-        </section>
-    </main>
-</div>
+<nav class="animate__animated animate__fadeIn animate__delay-1s">
+  <a href="#layanan">Layanan</a>
+  <a href="#galeri">Galeri</a>
+  <a href="#kontak">Kontak</a>
+</nav>
 
-<script>
-    const menuButton = document.querySelector('.mobile-menu-btn');
-    const mainMenu = document.getElementById('mainMenu');
-    const brandTitle = document.getElementById('brandTitle');
-    const definitionBox = document.getElementById('definitionBox');
+<section class="hero">
+  <h2 class="animate__animated animate__zoomIn">Kami Hadir untuk Solusi Elektronik Anda</h2>
+  <p class="animate__animated animate__fadeInUp animate__delay-1s">TV, Amplifier, dan semua jenis kerusakan – Kami tangani dengan penuh cinta dan keahlian.</p>
+</section>
 
-    menuButton.addEventListener('click', e => {
-        e.stopPropagation();
-        mainMenu.classList.toggle('active');
-    });
+<section id="layanan">
+  <h2 class="section-title">Layanan Kami</h2>
+  <div class="services">
+    <div class="card">
+      <i class="fas fa-tv"></i>
+      <h3>Servis TV CRT & LED</h3>
+      <p>Dari layar gelap sampai tidak nyala total. Kami perbaiki sampai kinclong.</p>
+    </div>
+    <div class="card">
+      <i class="fas fa-volume-up"></i>
+      <h3>Perbaikan Amplifier</h3>
+      <p>Suara kemresek? Mati total? Biar kami yang obrak-abrik sampai sehat kembali.</p>
+    </div>
+    <div class="card">
+      <i class="fas fa-bolt"></i>
+      <h3>Modifikasi & Inovasi</h3>
+      <p>Mau yang lebih gahar? Kami bisa custom sesuai keinginan hatimu.</p>
+    </div>
+  </div>
+</section>
 
-    document.addEventListener('click', () => {
-        mainMenu.classList.remove('active');
-        definitionBox.style.display = 'none';
-    });
+<section id="galeri">
+  <h2 class="section-title">Galeri Pekerjaan</h2>
+  <div class="gallery">
+    <img src="img1.jpg" alt="Proyek 1">
+    <img src="img2.jpg" alt="Proyek 2">
+    <img src="img3.jpg" alt="Proyek 3">
+    <img src="img4.jpg" alt="Proyek 4">
+  </div>
+</section>
 
-    brandTitle.addEventListener('click', e => {
-        e.stopPropagation();
-        definitionBox.style.display = definitionBox.style.display === 'block' ? 'none' : 'block';
-    });
+<section id="kontak">
+  <h2 class="section-title">Hubungi Kami</h2>
+  <div class="card">
+    <p>WhatsApp: <strong>0857-XXXX-XXXX</strong></p>
+    <p>Alamat: Jl. Elektronika No. 99, Kota Impian</p>
+    <p>Email: <a href="mailto:teslonik@gmail.com" style="color:#00ffc8;">teslonik@gmail.com</a></p>
+  </div>
+</section>
 
-    document.querySelectorAll('.service-card').forEach(card => {
-        card.addEventListener('touchstart', () => card.style.transform = 'scale(0.98)');
-        card.addEventListener('touchend', () => card.style.transform = 'scale(1)');
-    });
-</script>
+<footer>
+  &copy; 2025 TESLONIK. Semua Hak Dilindungi. Dibuat penuh gaya oleh Dayat.
+</footer>
 
 </body>
 </html>
